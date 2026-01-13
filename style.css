@@ -1,0 +1,125 @@
+:root {
+  --bg: #0b0b0b;
+  --accent: #d4af37;
+  --text: #ffffff;
+  --muted: #b3b3b3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img { width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+h1,h2,h3 { font-weight: 800; }
+h1 { font-size: 34px; margin-bottom: 15px; }
+h2 { font-size: 28px; margin-bottom: 30px; }
+p { color: var(--muted); }
+
+/* HERO */
+.hero {
+  min-height: 85vh;
+  background: url("images/photo_2026-01-10_20-12-49.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+  z-index: 1;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-primary { background: var(--accent); color: #000; }
+.btn-secondary { border: 1px solid var(--accent); color: var(--accent); }
+
+/* WHY */
+.why {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.why div {
+  background: #121212;
+  padding: 25px;
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+/* MENU */
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.menu-item {
+  background: #121212;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.menu-item div { padding: 20px; }
+
+/* REVIEWS */
+.reviews { display: grid; gap: 25px; }
+.review {
+  background: #121212;
+  padding: 25px;
+  border-radius: 18px;
+}
+.review span { color: var(--accent); font-weight: 600; }
+
+/* CONTACT */
+.contact { text-align: center; }
+.contact p { margin-bottom: 10px; }
+
+/* STICKY CTA */
+.sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,.95);
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 1px solid #222;
+}
+
+.sticky a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media(min-width: 768px) {
+  h1 { font-size: 46px; }
+  .sticky { display: none; }
+}
+
