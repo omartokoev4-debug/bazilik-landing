@@ -1,0 +1,19 @@
+/* HERO — адаптация под телефон */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 50vh;   /* вместо 78–100vh */
+    padding: 20px 16px;
+    background-position: center top;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+}
