@@ -1,3 +1,4 @@
+
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
@@ -5,7 +6,7 @@
   <title>Бакинский вкус — Шашлычная в Бишкеке</title>
   <meta name="description" content="Бакинский вкус — шашлычная в Бишкеке. Настоящий шашлык, хачапури, VIP-зал и уютная атмосфера. Забронируйте стол или напишите в WhatsApp." />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href=style.css/>
+
 
 
   <!-- Structured Data -->
@@ -35,7 +36,7 @@
     --bg:#070707;
     --card:#121212;
     --accent:#d4af37;
-    --muted:#bdbdbd;
+    --muted:#b4b4b4;
     --white:#ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -60,8 +61,14 @@
   justify-content: center;
   padding: 40px 20px;
   position: relative;
-  background: url("images/photo_2026-01-17_18-04-57_imgupscaler.ai_General_4K.jpg") center / cover no-repeat;
+  background: url("images/IMG_20260122_000858_imgupscaler.ai_General_4K (1).jpg") center / cover no-repeat;
 }
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+}
+
 
 
 
@@ -154,15 +161,17 @@
 </head>
 <body>
   <!-- HERO -->
-<header class="hero" role="banner" aria-label="Бакинский вкус — Hero">
-  <div class="hero-inner wrap" role="region">
-
-
-  
-    </div>
+<header class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner wrap">
+    <div class="brand-hint">Шашлычная • Азербайджанская • Грузинская</div>
+    <h1>Настоящий шашлык.<br>Настоящий вкус Баку.</h1>
+    <p class="lead">
+      Бакинский вкус — место, где мясо готовят на живом огне,
+      а гостей встречают как друзей.
+    </p>
   </div>
 </header>
-
 
 
   <!-- PAGE CONTENT -->
