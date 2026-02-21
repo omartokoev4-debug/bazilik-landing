@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Обувь — ICE CONCEPT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Обувь ICE CONCEPT — премиальные модели для города, спорта и классики." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/616429895_18419246077137149_9013640362052526599_n.jpg" alt="ICE Concept">
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="about.html">О нас</a></li>
+      <li><a href="catalog.html">Каталог</a></li>
+      <li><a href="new.html">Новинки</a></li>
+       <li><a href="index.html#loyalty">Лояльность</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="shoes-page">
+
+  <!-- HERO -->
+  <section class="shoes-hero">
+    <div class="shoes-hero-inner">
+      <h1 class="shoes-title">Обувь</h1>
+      <p class="shoes-subtitle">С нами вы не прогадаете. Основа любого образа начинается с обуви.</p>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="shoes-section">
+    <div class="shoes-grid">
+
+      <a href="#" class="shoes-card">
+        <div class="shoes-card-img"></div>
+        <div class="shoes-card-body">
+          <h3>Кроссовки</h3>
+          <p>Street / daily</p>
+        </div>
+      </a>
+
+      <a href="#" class="shoes-card">
+        <div class="shoes-card-img"></div>
+        <div class="shoes-card-body">
+          <h3>Классические туфли</h3>
+          <p>Офис / костюм</p>
+        </div>
+      </a>
+
+      <a href="#" class="shoes-card">
+        <div class="shoes-card-img"></div>
+        <div class="shoes-card-body">
+          <h3>Лоферы</h3>
+          <p>Smart-casual</p>
+        </div>
+      </a>
+
+      <a href="#" class="shoes-card">
+        <div class="shoes-card-img"></div>
+        <div class="shoes-card-body">
+          <h3>Ботинки</h3>
+          <p>Осень / зима</p>
+        </div>
+      </a>
+
+      <a href="#" class="shoes-card">
+        <div class="shoes-card-img"></div>
+        <div class="shoes-card-body">
+          <h3>Сандалии</h3>
+          <p>Лето / минимал</p>
+        </div>
+      </a>
+
+      <a href="#" class="shoes-card">
+        <div class="shoes-card-img"></div>
+        <div class="shoes-card-body">
+          <h3>Слипоны</h3>
+          <p>Комфорт</p>
+        </div>
+      </a>
+
+      <a href="#" class="shoes-card">
+        <div class="shoes-card-img"></div>
+        <div class="shoes-card-body">
+          <h3>Спортивная обувь</h3>
+          <p>Актив / тренировки</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+
+</main>
+
+<footer id="contacts">
+  <div class="footer-grid">
+    <div>
+      <h4>Адрес</h4>
+      <p>Саякбая Каралаева, 40/4<br>ЖК Южный Парк</p>
+    </div>
+    <div>
+      <h4>График</h4>
+      <p>Ежедневно 10:00 — 19:00</p>
+    </div>
+    <div>
+      <h4>Связь</h4>
+      <a href="https://www.instagram.com/ice__concept/">Instagram</a><br>
+      <a href="#">WhatsApp</a>
+    </div>
+  </div>
+  <p class="copyright">© 2026 ICE CONCEPT</p>
+</footer>
+
+<div class="style-popup" id="stylePopup">
+  <div class="style-popup-content">
+    <span class="style-close" onclick="closeStylePopup()">×</span>
+    <p class="style-popup-text">
+      💬 Не знаешь, что выбрать?<br>
+      Подберём образ под тебя.
+    </p>
+    <a href="obraz.html" class="style-popup-btn">Подобрать образ</a>
+  </div>
+</div>
+
+<script>
+  const popup = document.getElementById("stylePopup");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 400) {
+      popup.classList.add("show-popup");
+    }
+  });
+
+  function closeStylePopup() {
+    popup.style.display = "none";
+  }
+</script>
+
+</body>
+</html>
