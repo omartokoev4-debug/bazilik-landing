@@ -29,7 +29,10 @@
 html {
   scroll-behavior: smooth;
 }
-
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
 /* ---- Body ---- */
 body{
   font-family: 'Montserrat', sans-serif;
@@ -90,6 +93,7 @@ header{
   display: flex;
   align-items: center;
   gap: 26px;
+   z-index: 1001;
 }
 
 .nav-links a{
@@ -110,6 +114,8 @@ header{
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+  position: relative;
+  z-index: 1002;
 }
 
 .burger span{
@@ -1736,8 +1742,9 @@ footer{
   :root{ --header-h: 72px; }
 
   header{
-    height: 72px;
-    padding: 0 14px;
+    height: auto;
+    min-height: var(--header-h);
+    padding: 10px 14px;
   }
 
   .logo img{
@@ -1750,18 +1757,21 @@ footer{
 
   .nav-links{
     position: fixed;
-    top: var(--header-h);
+    top: 0;
     right: -100%;
     width: 240px;
-    height: calc(100vh - var(--header-h));
+    height: 100vh;
     background: #111;
 
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 40px 24px;
+
+    padding: calc(var(--header-h) + 28px) 24px 40px;
     gap: 20px;
 
     transition: right .4s ease;
+    z-index: 1001;
   }
 
   .nav-links.active{
@@ -1772,4 +1782,3 @@ footer{
     font-size: 16px;
   }
 }
-
