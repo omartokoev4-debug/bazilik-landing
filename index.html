@@ -15,8 +15,8 @@
 <header>
   <nav class="navbar">
     <div class="logo">
-      <a href="../index.html">
-        <img src="../images/616429895_18419246077137149_9013640362052526599_n.jpg" alt="ICE Concept">
+      <a href="index.html">
+        <img src="images/616429895_18419246077137149_9013640362052526599_n.jpg" alt="ICE Concept">
       </a>
     </div>
 
@@ -60,42 +60,95 @@
 
 </section>
 
-<!-- NEWS -->
-<section class="news">
+<section class="news" id="news">
   <h2 class="section-title">Новинки</h2>
 
-  <div class="news-grid">
+  <div class="news-grid news-embed-grid">
+    <div class="news-embed">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DU-HaXtDMTP/"
+        data-instgrm-version="14"></blockquote>
+    </div>
 
-    <a href="#" class="news-card">
-      <div class="news-media"></div>
-      <div class="news-caption">Пост #1</div>
-    </a>
+    <div class="news-embed">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DU7JgrtjEE4/"
+        data-instgrm-version="14"></blockquote>
+    </div>
 
-    <a href="#" class="news-card">
-      <div class="news-media"></div>
-      <div class="news-caption">Пост #2</div>
-    </a>
-
-    <a href="#" class="news-card">
-      <div class="news-media"></div>
-      <div class="news-caption">Пост #3</div>
-    </a>
-
+    <div class="news-embed">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DUpmAqNDMv9/"
+        data-instgrm-version="14"></blockquote>
+    </div>
   </div>
 </section>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<script>
+  // на случай, если инста не прогрузила с первого раза
+  window.addEventListener("load", () => {
+    if (window.instgrm?.Embeds?.process) window.instgrm.Embeds.process();
+  });
+</script>
 
 <!-- LOYALTY -->
 <section class="loyalty" id="loyalty">
-  <div class="loyalty-card">
-    <h2>ICE PRIORITY</h2>
-    <p>5% бонусами • до 30% оплаты чека</p>
-    <a href="#" class="btn-main">Получить доступ</a>
+  <div class="loyalty-card luxury">
+    <div class="loyalty-badge">ICE MEMBERSHIP</div>
+
+    <h2 class="loyalty-title">ICE PRIORITY</h2>
+
+    <p class="loyalty-desc">
+      5% бонусами <span class="dot">•</span> до 30% оплаты чека
+    </p>
+
+    <div class="loyalty-actions">
+      <a href="#" class="loyalty-btn">
+        Получить доступ
+        <span class="btn-glow"></span>
+      </a>
+    </div>
+
+    <p class="loyalty-footnote">Доступ открывается после подтверждения аккаунта.</p>
   </div>
 </section>
-
 <!-- FOOTER -->
-<footer id="contacts">
-  © 2026 ICE CONCEPT
+<footer class="footer" id="contacts">
+
+  <div class="footer-inner">
+
+    <!-- Блок 1 -->
+    <div class="footer-col footer-brand">
+      <h3>ICE CONCEPT</h3>
+      <p>Стиль, формирующий характер.  
+      Отобранные позиции. Чистая эстетика.  
+      Бишкек.</p>
+    </div>
+
+    <!-- Блок 2 -->
+    <div class="footer-col">
+      <h4>Навигация</h4>
+      <a href="#loyalty">Лояльность</a>
+      <a href="#news">Новинки</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+
+    <!-- Блок 3 -->
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <p>WhatsApp: +996 000 00 00 00</p>
+      <p>Instagram: @ice__concept</p>
+      <p>Ежедневно 12:00 – 21:00</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 ICE CONCEPT. All rights reserved.
+  </div>
+
 </footer>
 
 <script>
