@@ -14,16 +14,25 @@
 <header>
   <nav class="navbar">
     <div class="logo">
-      <a href="index.html"><img src="images/616429895_18419246077137149_9013640362052526599_n.jpg" alt="ICE Concept"></a>
+      <a href="../index.html">
+        <img src="../images/616429895_18419246077137149_9013640362052526599_n.jpg" alt="ICE Concept">
+      </a>
     </div>
 
     <ul class="nav-links">
-      <li><a href="about.html">О нас</a></li>
-       <li><a href="index.html#loyalty">Лояльность</a></li>
-      <li><a href="index.html#contacts">Контакты</a></li>
+      <li><a href="../index.html#loyalty">Лояльность</a></li>
+      <li><a href="../index.html#contacts">Контакты</a></li>
     </ul>
+
+    <!-- BURGER -->
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
 </header>
+
 
 <!-- HERO -->
 <section class="acc-hero">
@@ -123,6 +132,19 @@
   </div>
   <p class="copyright">© 2026 ICE CONCEPT</p>
 </footer>
+<!-- FOOTER -->
+<footer id="contacts">
+  © 2026 ICE CONCEPT
+</footer>
 
+<script>
+const burger = document.querySelector(".burger");
+const nav = document.querySelector(".nav-links");
+
+burger.addEventListener("click", () => {
+  burger.classList.toggle("active");
+  nav.classList.toggle("active");
+});
+</script>
 </body>
 </html>
