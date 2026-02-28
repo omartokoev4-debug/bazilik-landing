@@ -95,7 +95,7 @@
 
         <p class="section-kicker reveal">Соцсети</p>
 
-        <!-- Instagram (по центру) -->
+        <!-- Instagram -->
         <a class="link-card link-card--instagram link-card--center reveal"
            href="https://instagram.com/ice__concept"
            target="_blank" rel="noreferrer">
@@ -109,7 +109,7 @@
           <span class="link-card__arrow">→</span>
         </a>
 
-        <!-- Лента рилсов -->
+        <!-- Reels strip -->
         <div class="reels-strip reveal" aria-label="Лента рилсов">
           <a href="https://www.instagram.com/reel/DTrgr5MjNkW/" target="_blank" rel="noreferrer">
             <img src="images/0650ea62e31dd8962903ca099cf391fa.jpg" alt="Reel 1">
@@ -130,42 +130,56 @@
 
         <p class="section-kicker reveal">Лояльность</p>
 
-        <!-- Bonus system -->
-     <a class="link-card reveal bonus-pulse" href="#" target="_blank" rel="noreferrer">
-  <span class="link-card__icon"><img src="images/footer_uds.webp" alt="Бонусы"></span>
-  <span class="link-card__text">
-    <b>Бонусная система</b>
-    <small>Присоединяйся к нам и заказывай выгодно!😍</small>
-  </span>
+        <!-- Bonus -->
+        <a class="link-card reveal bonus-pulse" href="#" target="_blank" rel="noreferrer">
+          <span class="link-card__icon"><img src="images/footer_uds.webp" alt="Бонусы"></span>
+          <span class="link-card__text">
+            <b>Бонусная система</b>
+            <small>Присоединяйся к нам и заказывай выгодно!😍</small>
+          </span>
 
-  <span class="limited-badge">
-    <span class="limited-dot"></span>
-  </span>
+          <span class="limited-badge">
+            <span class="limited-dot"></span>
+          </span>
 
-  <span class="link-card__arrow">→</span>
-</a>
+          <span class="link-card__arrow">→</span>
+        </a>
 
     </div>
   </main>
 
-  <!-- MAP -->
-  <section class="map reveal" aria-label="Карта 2ГИС">
-    <h2 class="map__title">Мы на карте</h2>
+ <!-- MAP (static preview) -->
+<section class="map map-card reveal" aria-label="Мы на карте">
+  <div class="map-card__inner">
+    <header class="map-card__head">
+      
 
-    <div class="map__actions">
-      <a class="map__btn" href="https://2gis.kg/bishkek?m=74.631546%2C42.831537%2F16" target="_blank" rel="noreferrer">Открыть в 2ГИС</a>
-      <a class="map__btn" href="https://www.google.com/maps?q=42.831537,74.631546" target="_blank" rel="noreferrer">Открыть в Google Maps</a>
-    </div>
+      <a class="map__btn map__btn--primary map__btn--2gis" href="#" target="_blank" rel="noreferrer">
+  <span class="map__btn-icon" aria-hidden="true">
+    <img src="images/i.webp" alt="">
+  </span>
+  <span class="map__btn-text">МЫ НА КАРТЕ</span>
+  <span class="map__btn-spacer" aria-hidden="true"></span>
+</a>
+    </header>
 
-    <div class="map__frame">
-      <iframe
-        src="https://widgets.2gis.com/widget?ll=74.631546,42.831537&z=16"
+    <a class="map-preview" href="https://go.2gis.com/yVP4y" target="_blank" rel="noreferrer" aria-label="Открыть в 2ГИС">
+      <!-- вместо iframe — картинка -->
+      <img
+        src="images/Снимок экрана 2026-02-28 221609.png"
+        alt="Расположение на карте"
         loading="lazy"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </section>
+      />
 
+      <span class="map-preview__badge">
+        <span class="map-preview__pin"></span>
+        Наше местоположение
+      </span>
+
+      <span class="map-preview__hint">→</span>
+    </a>
+  </div>
+</section>
   <!-- Reveal on scroll -->
   <script>
     (() => {
@@ -190,5 +204,54 @@
     })();
   </script>
 
+  <!-- Parallax glow (без конфликтов, только CSS vars) -->
+  <script>
+    (() => {
+      const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) return;
+
+      const root = document.documentElement;
+
+      let latestY = 0;
+      let ticking = false;
+
+      function update() {
+        ticking = false;
+
+        const y = latestY;
+
+        // скорость движения (чуть-чуть, чтобы было дорого, не “аттракцион”)
+        const g1y = Math.round(y * 0.10);
+        const g2y = Math.round(y * 0.06);
+
+        // лёгкий x-сдвиг для глубины
+        const g1x = Math.round(y * -0.02);
+        const g2x = Math.round(y * 0.015);
+
+        root.style.setProperty("--glow1-y", g1y + "px");
+        root.style.setProperty("--glow2-y", g2y + "px");
+        root.style.setProperty("--glow1-x", g1x + "px");
+        root.style.setProperty("--glow2-x", g2x + "px");
+      }
+
+      function onScroll() {
+        latestY = window.scrollY || 0;
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll(); // init
+    })();
+  </script>
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-copy">
+      © 2026 ICE CONCEPT
+    </p>
+  </div>
+</footer>
 </body>
 </html>

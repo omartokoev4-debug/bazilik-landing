@@ -7,9 +7,17 @@
 
   --card: rgba(255,255,255,.88);
   --stroke: rgba(18,18,18,.10);
-  --shadow: 0 18px 50px rgba(0,0,0,.10);
+
+  /* тени (усиленные как мы делали) */
+  --shadow: 0 20px 60px rgba(0,0,0,.16);
 
   --radius: 999px;
+
+  /* ===== Parallax vars (двигаются JS) ===== */
+  --glow1-x: 0px;
+  --glow1-y: 0px;
+  --glow2-x: 0px;
+  --glow2-y: 0px;
 }
 
 *{ box-sizing: border-box; }
@@ -39,6 +47,10 @@ body::after{
   opacity: .55;
   z-index: -1;
   pointer-events: none;
+
+  /* ===== Parallax (без конфликтов): просто transform через CSS vars ===== */
+  will-change: transform;
+  transform: translate3d(0,0,0);
 }
 
 /* верхнее левое */
@@ -46,6 +58,7 @@ body::before{
   top: -200px;
   left: -200px;
   background: radial-gradient(circle, #ff7a00 0%, transparent 65%);
+  transform: translate3d(var(--glow1-x), var(--glow1-y), 0);
 }
 
 /* нижнее правое */
@@ -53,6 +66,12 @@ body::after{
   bottom: -250px;
   right: -200px;
   background: radial-gradient(circle, #ff9e45 0%, transparent 65%);
+  transform: translate3d(var(--glow2-x), var(--glow2-y), 0);
+}
+
+/* если у юзера включено "уменьшить анимации" — параллакс отключаем */
+@media (prefers-reduced-motion: reduce){
+  body::before, body::after{ transform: none !important; }
 }
 
 .container{
@@ -78,7 +97,7 @@ body::after{
   place-items:center;
   background:#fff;
   border:1px solid var(--stroke);
-  box-shadow: 0 16px 34px rgba(0,0,0,.10);
+  box-shadow: 0 20px 45px rgba(0,0,0,.18);
 }
 .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
 .avatar-fallback{
@@ -155,7 +174,7 @@ body::after{
   margin: 0;
 }
 
-/* small section labels to keep the page from feeling like one long block */
+/* small section labels */
 .section-kicker{
   margin: 10px 4px -10px;
   font-size: 12px;
@@ -165,18 +184,18 @@ body::after{
   font-weight: 700;
 }
 
-/* card: icon left, text center, arrow right */
+/* card */
 .link-card{
   position: relative;
   display: grid;
-  grid-template-columns: 64px 1fr 32px; /* icon | centered text | arrow */
+  grid-template-columns: 64px 1fr 32px;
   align-items: center;
   backdrop-filter: blur(8px);
   padding: 18px 22px;
   border-radius: var(--radius);
   background: rgba(255,255,255,.7);
   border: 1px solid var(--stroke);
-  box-shadow: var(--shadow);
+  box-shadow: 0 22px 60px rgba(0,0,0,.18);
 
   text-decoration:none;
   color: var(--text);
@@ -184,7 +203,7 @@ body::after{
 }
 .link-card:hover{
   transform: translateY(-3px);
-  box-shadow: 0 26px 70px rgba(0,0,0,.14);
+  box-shadow: 0 30px 80px rgba(0,0,0,.22);
 }
 
 .link-card:focus-visible{
@@ -192,7 +211,7 @@ body::after{
   outline-offset: 3px;
 }
 
-/* premium “sheen” on hover */
+/* sheen */
 .link-card::after{
   content:"";
   position:absolute;
@@ -250,41 +269,19 @@ body::after{
 }
 .link-card:hover .link-card__arrow{ transform: translateX(4px); opacity: .75; }
 
-/* featured / tints */
-.link-card--featured{
-  background: linear-gradient(135deg, #dff6f9, #cfeff3);
-  border: none;
-}
-.badge{
-  position:absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 10px;
-  letter-spacing:.16em;
-  font-weight: 700;
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.75);
-  border: 1px solid rgba(18,18,18,.10);
-}
+/* tints */
+.link-card--featured{ background: linear-gradient(135deg, #dff6f9, #cfeff3); border: none; }
+.link-card--whatsapp{ background: linear-gradient(135deg, #eafff3, #e3fff1); }
+.link-card--telegram{ background: linear-gradient(135deg, #eef2ff, #e7f0ff); }
+.link-card--instagram{ background: linear-gradient(135deg, #fff0f7, #f0f1ff); }
 
-.link-card--whatsapp{
-  background: linear-gradient(135deg, #eafff3, #e3fff1);
-}
-.link-card--telegram{
-  background: linear-gradient(135deg, #eef2ff, #e7f0ff);
-}
-.link-card--instagram{
-  background: linear-gradient(135deg, #fff0f7, #f0f1ff);
-}
-
-/* Instagram card centered between others */
+/* center */
 .link-card--center{
   max-width: 520px;
   margin: 18px auto 0;
 }
 
-/* REELS STRIP (без точек, без слайдера) */
+/* REELS STRIP */
 .reels-strip{
   display:flex;
   gap: 14px;
@@ -294,7 +291,6 @@ body::after{
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
 
-  /* fade edges for a cleaner “carousel” look */
   mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
@@ -306,7 +302,7 @@ body::after{
   border-radius: 16px;
   overflow:hidden;
   scroll-snap-align: center;
-  box-shadow: 0 14px 40px rgba(0,0,0,.12);
+  box-shadow: 0 18px 55px rgba(0,0,0,.18);
   background: rgba(255,255,255,.55);
   transition: transform .2s ease;
 }
@@ -319,8 +315,7 @@ body::after{
   display:block;
 }
 
-/* ===== LIMITED OFFER (premium, not spammy) ===== */
-
+/* ===== LIMITED OFFER ===== */
 .bonus-pulse{
   position: relative;
   overflow: hidden;
@@ -328,7 +323,6 @@ body::after{
   animation: offerBreath 3.4s ease-in-out infinite;
 }
 
-/* тонкое кольцо-пульс вокруг (не увеличивает контейнер) */
 .bonus-pulse::before{
   content:"";
   position:absolute;
@@ -347,7 +341,6 @@ body::after{
   z-index: 0;
 }
 
-/* мягкий shimmer-проход по карточке */
 .bonus-pulse::after{
   content:"";
   position:absolute;
@@ -366,13 +359,8 @@ body::after{
   opacity: .6;
 }
 
-/* чтобы контент был поверх псевдо-слоёв */
-.bonus-pulse > *{
-  position: relative;
-  z-index: 1;
-}
+.bonus-pulse > *{ position: relative; z-index: 1; }
 
-/* “дыхание” самой карточки — дорогое, минимальное */
 @keyframes offerBreath{
   0%,100%{
     transform: translateY(0) scale(1);
@@ -395,8 +383,7 @@ body::after{
   100%{ transform: translateX(140%); }
 }
 
-/* ===== LIMITED badge ===== */
-
+/* LIMITED badge */
 .limited-badge{
   justify-self: end;
   align-self: center;
@@ -419,7 +406,6 @@ body::after{
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 
-  /* subtle glow */
   position: relative;
   overflow: hidden;
 }
@@ -438,7 +424,6 @@ body::after{
   50%{ transform: scale(1.15); box-shadow: 0 0 0 10px rgba(255,122,0,.10); }
 }
 
-/* блик по самому бейджу */
 .limited-badge::after{
   content:"";
   position:absolute;
@@ -456,7 +441,6 @@ body::after{
   100%{ transform: translateX(160%); }
 }
 
-/* на мобилке бейдж компактнее, чтобы не давил стрелку */
 @media (max-width: 520px){
   .limited-badge{
     font-size: 10px;
@@ -464,61 +448,300 @@ body::after{
     letter-spacing: .14em;
   }
 }
-/* MAP */
-.map{
-  margin-top: 26px;
+/* ===== MAP CARD (static) ===== */
+
+.map.map-card{
+  margin-top: 28px;
+  padding: 0 16px; /* чтобы на мобиле не липло к краям */
+}
+
+.map-card__inner{
+  width: min(760px, 100%);
+  margin: 0 auto;
+
+  border-radius: 26px;
+  background: rgba(255,255,255,.62);
+  border: 1px solid rgba(18,18,18,.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* “рамка” + мягкая тень */
+  box-shadow:
+    0 22px 70px rgba(0,0,0,.16),
+    inset 0 1px 0 rgba(255,255,255,.75);
+
+  overflow: hidden;
+  position: relative;
+}
+
+/* лёгкий декоративный градиент-бордер (очень премиум) */
+.map-card__inner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,122,0,.25),
+    rgba(255,255,255,.0) 35%,
+    rgba(255,158,69,.22)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: .9;
+}
+
+.map-card__head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 18px 14px;
 }
 
 .map__title{
-  text-align: center;
+  margin: 0;
   font-family: var(--font-title);
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
-  margin: 0 0 14px;
 }
 
-.map__actions{
-  display:flex;
-  gap: 10px;
-  justify-content:center;
-  flex-wrap: wrap;
-  margin: 0 0 14px;
-}
-
+/* Одна кнопка — более заметная и “дорогая” */
 .map__btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding: 10px 14px;
+  gap: 10px;
+
+  padding: 11px 14px;
   border-radius: 999px;
   text-decoration:none;
-  color: var(--text);
-  background: rgba(255,255,255,.70);
-  border: 1px solid var(--stroke);
-  box-shadow: 0 14px 34px rgba(0,0,0,.10);
   font-size: 13px;
-  font-weight: 600;
-  transition: transform .2s ease, box-shadow .2s ease;
+  font-weight: 700;
+
+  border: 1px solid rgba(18,18,18,.12);
+  background: rgba(255,255,255,.75);
+  color: var(--text);
+
+  box-shadow: 0 18px 45px rgba(0,0,0,.14);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
+
 .map__btn:hover{
   transform: translateY(-2px);
-  box-shadow: 0 20px 50px rgba(0,0,0,.12);
-}
-.map__btn:focus-visible{
-  outline: 3px solid rgba(255,122,0,.55);
-  outline-offset: 3px;
+  box-shadow: 0 26px 65px rgba(0,0,0,.18);
 }
 
-.map__frame{
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 18px 50px rgba(0,0,0,.10);
-  border: 1px solid var(--stroke);
+.map__btn--primary{
+  border-color: rgba(255,122,0,.28);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.14),
+    0 0 0 6px rgba(255,122,0,.10);
 }
 
-.map__frame iframe{
-  width: 100%;
-  height: 340px;
-  border: 0;
+/* Превью-карта (картинка) */
+.map-preview{
   display:block;
+  position: relative;
+  margin: 0 18px 18px;
+  border-radius: 18px;
+  overflow:hidden;
+
+  border: 1px solid rgba(18,18,18,.10);
+  box-shadow: 0 20px 70px rgba(0,0,0,.18);
+  transform: translateZ(0);
+
+  text-decoration: none;
+  color: inherit;
+}
+
+.map-preview img{
+  width: 100%;
+  height: clamp(240px, 42vw, 340px);
+  object-fit: cover;
+  display:block;
+  filter: saturate(1.02) contrast(1.02);
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.map-preview:hover img{
+  transform: scale(1.02);
+  filter: saturate(1.08) contrast(1.04);
+}
+
+/* бейдж сверху */
+.map-preview__badge{
+  position:absolute;
+  top: 14px;
+  left: 14px;
+
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(18,18,18,.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 16px 40px rgba(0,0,0,.16);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.map-preview__pin{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,122,0,.95);
+  box-shadow: 0 0 0 7px rgba(255,122,0,.16);
+}
+
+/* подсказка снизу */
+.map-preview__hint{
+  position:absolute;
+  bottom: 12px;
+  right: 12px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+
+  background: rgba(18,18,18,.55);
+  color: rgba(255,255,255,.92);
+
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transform: translateY(2px);
+  opacity: .92;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+.map-preview:hover .map-preview__hint{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* мобилка — компактнее шапка */
+@media (max-width: 520px){
+  .map-card__head{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .map__btn{
+    width: 100%;
+  }
+  .map__title{
+    text-align: center;
+    font-size: 24px;
+  }
+}
+/* ===== Mobile: blur off, colors stay ===== */
+@media (max-width: 720px){
+
+  /* убираем blur (чтобы не мыло страницу) */
+  .link-card,
+  .limited-badge,
+  .map-card__inner,
+  .map-preview__badge,
+  .map-preview__hint{
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* БАЗОВЫЕ карточки (без модификатора) — просто плотнее белый */
+  .link-card{
+    background: rgba(255,255,255,.92) !important;
+  }
+
+  /* ВАЖНО: модификаторы с цветом НЕ перезатираем белым,
+     а усиливаем их градиент, чтобы на мобиле выглядело “как на ПК” */
+  .link-card--whatsapp{
+    background: linear-gradient(135deg, rgba(234,255,243,.98), rgba(227,255,241,.98)) !important;
+  }
+  .link-card--telegram{
+    background: linear-gradient(135deg, rgba(238,242,255,.98), rgba(231,240,255,.98)) !important;
+  }
+  .link-card--instagram{
+    background: linear-gradient(135deg, rgba(255,240,247,.98), rgba(240,241,255,.98)) !important;
+  }
+  .link-card--featured{
+    background: linear-gradient(135deg, rgba(223,246,249,.98), rgba(207,239,243,.98)) !important;
+  }
+
+  /* badge пусть будет чуть плотнее */
+  .limited-badge{
+    background: rgba(255,255,255,.90) !important;
+  }
+
+  /* MAP карточку тоже делаем плотнее, чтобы “не выцветала” */
+  .map-card__inner{
+    background: rgba(255,255,255,.88) !important;
+  }
+  .map-preview__badge{
+    background: rgba(255,255,255,.90) !important;
+  }
+  .map-preview__hint{
+    background: rgba(18,18,18,.62) !important;
+  }
+}
+.map__btn--2gis{
+  display: grid;
+  grid-template-columns: 24px 1fr 24px; /* иконка | текст | симметрия */
+  align-items: center;
+  column-gap: 10px;
+  text-align: center;
+}
+
+.map__btn--2gis .map__btn-text{
+  justify-self: center;
+  white-space: nowrap;
+}
+
+.map__btn--2gis .map__btn-icon{
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+}
+
+.map__btn--2gis .map__btn-icon img{
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+/* правый "пустой" слот, чтобы текст был реально по центру */
+.map__btn--2gis .map__btn-spacer{
+  width: 24px;
+  height: 24px;
+}
+/* ===== FOOTER ===== */
+.site-footer{
+  margin-top: 60px;
+  padding: 30px 0 50px;
+  text-align: center;
+}
+
+.footer-copy{
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(18,18,18,.45);
 }
