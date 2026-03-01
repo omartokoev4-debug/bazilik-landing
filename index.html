@@ -100,7 +100,7 @@
            href="https://instagram.com/ice__concept"
            target="_blank" rel="noreferrer">
           <span class="link-card__icon">
-            <img src="images/instagram-social-media-brand-logo-icon-set_628407-1996.avif" alt="Instagram">
+            <img src="images/8a770507298d728a1e3e039a0507dd8e.png" alt="Instagram">
           </span>
           <span class="link-card__text">
             <b>Наш Instagram</b>
@@ -109,25 +109,24 @@
           <span class="link-card__arrow">→</span>
         </a>
 
-        <!-- Reels strip -->
-        <div class="reels-strip reveal" aria-label="Лента рилсов">
-          <a href="https://www.instagram.com/reel/DTrgr5MjNkW/" target="_blank" rel="noreferrer">
-            <img src="images/0650ea62e31dd8962903ca099cf391fa.jpg" alt="Reel 1">
-          </a>
-          <a href="https://www.instagram.com/reel/DPvkuUujOuY/" target="_blank" rel="noreferrer">
-            <img src="images/0650ea62e31dd8962903ca099cf391fa.jpg" alt="Reel 2">
-          </a>
-          <a href="https://www.instagram.com/reel/DPp58OLDCqn/" target="_blank" rel="noreferrer">
-            <img src="images/0650ea62e31dd8962903ca099cf391fa.jpg" alt="Reel 3">
-          </a>
-          <a href="https://www.instagram.com/reel/DMZVerhIdXJ/" target="_blank" rel="noreferrer">
-            <img src="images/0650ea62e31dd8962903ca099cf391fa.jpg" alt="Reel 4">
-          </a>
-          <a href="https://www.instagram.com/reel/DPVuxd0jLt7/" target="_blank" rel="noreferrer">
-            <img src="images/0650ea62e31dd8962903ca099cf391fa.jpg" alt="Reel 5">
-          </a>
-        </div>
+      <!-- Reels strip (VIDEO MARQUEE) -->
+<!-- Reels single video -->
+<div class="reels-strip reveal" aria-label="Видео рилс">
+  <a class="reels-single"
+     href="https://www.instagram.com/reel/DTrgr5MjNkW/"
+     target="_blank"
+     rel="noreferrer">
 
+    <video class="reels-single__video"
+           autoplay
+           muted
+           loop
+           playsinline
+           preload="metadata">
+      <source src="video/lv_0_20260301205807.mp4" type="video/mp4">
+    </video>
+  </a>
+</div>
         <p class="section-kicker reveal">Лояльность</p>
 
         <!-- Bonus -->
@@ -152,19 +151,16 @@
 <section class="map map-card reveal" aria-label="Мы на карте">
   <div class="map-card__inner">
     <header class="map-card__head">
-      
-
       <a class="map__btn map__btn--primary map__btn--2gis" href="#" target="_blank" rel="noreferrer">
-  <span class="map__btn-icon" aria-hidden="true">
-    <img src="images/i.webp" alt="">
-  </span>
-  <span class="map__btn-text">МЫ НА КАРТЕ</span>
-  <span class="map__btn-spacer" aria-hidden="true"></span>
-</a>
+        <span class="map__btn-icon" aria-hidden="true">
+          <img src="images/i.webp" alt="">
+        </span>
+        <span class="map__btn-text">МЫ НА КАРТЕ</span>
+        <span class="map__btn-spacer" aria-hidden="true"></span>
+      </a>
     </header>
 
     <a class="map-preview" href="https://go.2gis.com/yVP4y" target="_blank" rel="noreferrer" aria-label="Открыть в 2ГИС">
-      <!-- вместо iframe — картинка -->
       <img
         src="images/Снимок экрана 2026-02-28 221609.png"
         alt="Расположение на карте"
@@ -180,6 +176,7 @@
     </a>
   </div>
 </section>
+
   <!-- Reveal on scroll -->
   <script>
     (() => {
@@ -220,11 +217,9 @@
 
         const y = latestY;
 
-        // скорость движения (чуть-чуть, чтобы было дорого, не “аттракцион”)
         const g1y = Math.round(y * 0.10);
         const g2y = Math.round(y * 0.06);
 
-        // лёгкий x-сдвиг для глубины
         const g1x = Math.round(y * -0.02);
         const g2x = Math.round(y * 0.015);
 
@@ -243,9 +238,49 @@
       }
 
       window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll(); // init
+      onScroll();
     })();
   </script>
+
+  <!-- Reels marquee: бесшовная бесконечная прокрутка -->
+  <script>
+    (() => {
+      const track = document.querySelector("[data-reels-track]");
+      if (!track) return;
+
+      const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) return;
+
+      function applyShift(){
+        // половина ширины = один “сет” (потому что у нас 2 одинаковых сета подряд)
+        const half = Math.floor(track.scrollWidth / 2);
+        track.style.setProperty("--reels-shift", half + "px");
+      }
+
+      // дождёмся метаданных видео, чтобы размеры стали стабильнее
+      const vids = track.querySelectorAll("video");
+      let pending = vids.length;
+
+      vids.forEach(v => {
+        // на всякий случай “пинаем” автоплей на iOS
+        v.muted = true;
+        v.playsInline = true;
+
+        const done = () => {
+          pending = Math.max(0, pending - 1);
+          if (pending === 0) applyShift();
+        };
+
+        if (v.readyState >= 1) done();
+        else v.addEventListener("loadedmetadata", done, { once: true });
+      });
+
+      window.addEventListener("resize", applyShift, { passive: true });
+      // fallback: если loadedmetadata не сработал (кеш), всё равно применим
+      setTimeout(applyShift, 300);
+    })();
+  </script>
+
 <footer class="site-footer">
   <div class="container">
     <p class="footer-copy">

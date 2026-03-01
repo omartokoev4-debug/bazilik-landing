@@ -88,7 +88,7 @@
       <section class="bs-how reveal" id="how" aria-label="Как работаем">
         <div class="bs-card">
           <div class="bs-card__head">
-            <h2 class="bs-h2">Как работаем</h2>
+            <h2 class="bs-h2">Как мы работаем?</h2>
             <p class="bs-sub">4 шага — и заказ в работе</p>
           </div>
 
@@ -313,25 +313,48 @@
 
     if (form) form.addEventListener("input", calc);
 
+    // ✅ ВОТ ЭТО НОВОЕ: URL твоего Cloudflare Worker
+    const WORKER_URL = "https://blue-resonance-29cb.crycrazydiamond.workers.dev";
+
     if (form) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         calc();
+
+        const text =
+`🧊 ICE CONCEPT • Buyer Service
+📌 Новая заявка
+
+👤 Имя: ${form.name?.value || "-"}
+📱 Контакт: ${form.phone?.value || "-"}
+
+🔗 Ссылка: ${form.link?.value || "-"}
+💰 Цена: ${form.itemPrice?.value || "-"} ${form.currency?.value || ""}
+🎯 Размер/цвет: ${form.variant?.value || "-"}
+📝 Комментарий: ${form.comment?.value || "-"}
+
+📊 Расчёт (предв.)
+Курс: ${h_rate?.value || "-"} сом
+Товар: ${h_baseSom?.value || "-"} сом
+Комиссия: ${h_commissionPct?.value || "-"}% = ${h_commissionSom?.value || "-"} сом
+Доставка: ${h_delivery?.value || "-"} сом
+✅ Итого: ${h_totalSom?.value || "-"} сом`;
+
         try {
-          const formData = new FormData(form);
-          const res = await fetch(form.action, {
+          const res = await fetch(WORKER_URL, {
             method: "POST",
-            body: formData,
-            headers: { "Accept": "application/json" }
+            headers: { "Accept": "application/json", "Content-Type": "application/json" },
+            body: JSON.stringify({ text })
           });
-          if (!res.ok) throw new Error("Formspree error");
+
+          if (!res.ok) throw new Error("Worker error");
 
           if (statusEl) statusEl.textContent = "✅ Заявка отправлена! Мы свяжемся с вами.";
           form.reset();
           calc();
         } catch (err) {
           console.error(err);
-          if (statusEl) statusEl.textContent = "❌ Ошибка отправки. Проверь Formspree.";
+          if (statusEl) statusEl.textContent = "❌ Не удалось отправить заявку. Попробуйте ещё раз.";
         }
       });
     }
