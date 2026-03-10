@@ -4,324 +4,304 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Buyer Service — ICE CONCEPT</title>
-  <meta name="description" content="Байер-сервис: расчёт стоимости и заявка. Кыргызстан." />
+  <meta name="description" content="Байер-сервис: расчёт стоимости и оформление заявки. Кыргызстан." />
 
-  <!-- Основной стиль главной -->
   <link rel="stylesheet" href="./style.css" />
-  <!-- Стили именно для buyer страницы -->
   <link rel="stylesheet" href="./buyer-service.css" />
 
-  <!-- Fonts (как на главной) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Top mini header -->
 <header class="bs-top reveal">
   <div class="container bs-top__inner">
 
-    <!-- Логотип / главная -->
     <a class="bs-navbtn bs-navbtn--logo" href="index.html" aria-label="На главную">
-      <img src="images/ChatGPT Image 28 февр. 2026 г., 23_15_39.png" alt="ICE">
+      <img src="images/ChatGPT Image 28 февр. 2026 г., 21_20_25.png" alt="ICE">
     </a>
 
-    <!-- Центр -->
     <div class="bs-brand">
       <div class="bs-brand__title">Buyer Service</div>
       <div class="bs-brand__sub">ICE CONCEPT</div>
     </div>
 
-    <!-- Соцсети -->
     <nav class="bs-nav" aria-label="Социальные сети">
-      <a class="bs-navbtn" href="#" target="_blank" aria-label="Telegram">
+      <a class="bs-navbtn" href="" target="_blank" aria-label="Telegram">
         <img src="images/Telegram_2019_Logo.svg.webp" alt="">
       </a>
-      <a class="bs-navbtn" href="#" target="_blank" aria-label="WhatsApp">
+      <a class="bs-navbtn" href="" target="_blank" aria-label="WhatsApp">
         <img src="images/whatsapp-icon-logo-transparent-background-free-png.webp" alt="">
       </a>
-      <a class="bs-navbtn" href="#" target="_blank" aria-label="Instagram">
-        <img src="images/instagram-social-media-brand-logo-icon-set_628407-1996.avif" alt="">
+      <a class="bs-navbtn bs-navbtn--instagram" href="https://www.instagram.com/ice__concept/?hl=ru" target="_blank">
+        <img src="images/8a770507298d728a1e3e039a0507dd8e.png" alt="">
       </a>
     </nav>
 
   </div>
 </header>
 
-  <main class="bs-main">
-    <div class="container">
+<main class="bs-main">
+  <div class="container">
 
-      <!-- Hero -->
-      <section class="bs-hero reveal" aria-label="Buyer сервис">
-        <div class="bs-hero__card">
-          <div class="bs-pill">⚡ Под заказ • 🇰🇬 Кыргызстан • 📦 7–21 дней</div>
+    <section class="bs-hero reveal" aria-label="Buyer сервис">
+      <div class="bs-hero__card">
+        <div class="bs-pill">Под заказ • Кыргызстан • Срок 7–21 день</div>
 
-          <h1 class="bs-hero__title">Посчитай итог в сомах — и отправь заявку</h1>
+        <h1 class="bs-hero__title">Рассчитайте стоимость и оформите заявку</h1>
 
-          <p class="bs-hero__text">
-            Вставляешь ссылку + цену. Мы считаем: курс → комиссия → доставка.
-            Дальше менеджер уточняет детали и подтверждает заказ.
+        <p class="bs-hero__text">
+          Укажите ссылку и цену товара — система выполнит предварительный расчёт.
+          После отправки заявки менеджер свяжется с вами для подтверждения заказа.
+        </p>
+
+        <div class="bs-hero__actions">
+          <a class="bs-btn bs-btn--primary" href="#calc">Рассчитать</a>
+          <a class="bs-btn bs-btn--ghost" href="#how">Порядок оформления</a>
+        </div>
+
+        <div class="bs-metrics">
+          <div class="bs-metric">
+            <b>3–10%</b><span>комиссия</span>
+          </div>
+          <div class="bs-metric">
+            <b>1–2 мин</b><span>оформление</span>
+          </div>
+          <div class="bs-metric">
+            <b>0 сом</b><span>расчёт</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bs-how reveal" id="how">
+      <div class="bs-card">
+        <div class="bs-card__head">
+          <h2 class="bs-h2">Порядок оформления</h2>
+          <p class="bs-sub">Простой и понятный процесс</p>
+        </div>
+
+        <div class="bs-steps">
+          <div class="bs-step"><b>1</b><span>Предоставляете ссылку и параметры товара</span></div>
+          <div class="bs-step"><b>2</b><span>Получаете предварительный расчёт</span></div>
+          <div class="bs-step"><b>3</b><span>Подтверждение и оплата</span></div>
+          <div class="bs-step"><b>4</b><span>Доставка и выдача заказа</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bs-calc reveal" id="calc">
+      <div class="bs-calc__head">
+        <h2 class="bs-h2">Калькулятор стоимости</h2>
+        <p class="bs-sub">Предварительный расчёт перед оформлением</p>
+      </div>
+
+      <div class="bs-calc__grid">
+
+        <form class="bs-form" id="orderForm">
+
+          <div class="bs-field">
+            <label class="bs-label" for="link">Ссылка на товар</label>
+            <input class="bs-input" id="link" name="link" placeholder="https://..." required />
+          </div>
+
+          <div class="bs-row">
+            <div class="bs-field">
+              <label class="bs-label" for="itemPrice">Стоимость товара</label>
+              <input class="bs-input" id="itemPrice" name="itemPrice" type="number" step="0.01" required />
+            </div>
+
+            <div class="bs-field">
+              <label class="bs-label" for="currency">Валюта</label>
+              <select class="bs-input" id="currency" name="currency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="CNY">CNY</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="bs-field">
+            <label class="bs-label" for="variant">Размер / цвет</label>
+            <input class="bs-input" id="variant" name="variant" placeholder="Например: 42 / black" />
+          </div>
+
+          <div class="bs-field">
+            <label class="bs-label" for="comment">Комментарий</label>
+            <textarea class="bs-input bs-textarea" id="comment" name="comment" placeholder="Дополнительные уточнения"></textarea>
+          </div>
+
+          <div class="bs-row">
+            <div class="bs-field">
+              <label class="bs-label" for="name">Имя</label>
+              <input class="bs-input" id="name" name="name" required />
+            </div>
+
+            <div class="bs-field">
+              <label class="bs-label" for="phone">Контактный номер</label>
+              <input class="bs-input" id="phone" name="phone" required />
+            </div>
+          </div>
+
+          <div class="bs-actions">
+            <button class="bs-btn bs-btn--primary" type="submit">Отправить</button>
+            <a class="bs-btn bs-btn--ghost" href="index.html">На главную</a>
+          </div>
+
+          <p class="bs-status" id="status"></p>
+        </form>
+
+        <aside class="bs-summary">
+          <h3 class="bs-summary__title">Итог расчёта</h3>
+
+          <div class="bs-kv">
+            <div class="bs-kv__row"><span>Товар</span><b id="baseSom">0</b></div>
+            <div class="bs-kv__row"><span>Комиссия</span><b id="commissionSom">0</b></div>
+            <div class="bs-kv__row"><span>Доставка</span><b id="deliverySom">0</b></div>
+          </div>
+
+          <div class="bs-total">
+            <span>К оплате</span>
+            <b id="totalSom">0</b>
+          </div>
+
+          <p class="bs-note">
+            Окончательная сумма подтверждается менеджером.
           </p>
+        </aside>
 
-          <div class="bs-hero__actions">
-            <a class="bs-btn bs-btn--primary" href="#calc">Рассчитать</a>
-            <a class="bs-btn bs-btn--ghost" href="#how">Как работаем</a>
-          </div>
+      </div>
+    </section>
 
-          <div class="bs-metrics" aria-label="Коротко о сервисе">
-            <div class="bs-metric">
-              <b>3–10%</b><span>комиссия</span>
-            </div>
-            <div class="bs-metric">
-              <b>1–2 мин</b><span>на заявку</span>
-            </div>
-            <div class="bs-metric">
-              <b>0 сом</b><span>расчёт</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- How (укорочено) -->
-      <section class="bs-how reveal" id="how" aria-label="Как работаем">
-        <div class="bs-card">
-          <div class="bs-card__head">
-            <h2 class="bs-h2">Как мы работаем?</h2>
-            <p class="bs-sub">4 шага — и заказ в работе</p>
-          </div>
-
-          <div class="bs-steps">
-            <div class="bs-step"><b>1</b><span>Ссылка + размер/цвет</span></div>
-            <div class="bs-step"><b>2</b><span>Считаем итог в сомах</span></div>
-            <div class="bs-step"><b>3</b><span>Подтверждаем и принимаем оплату</span></div>
-            <div class="bs-step"><b>4</b><span>Доставка + выдача</span></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CALC (главное) -->
-      <section class="bs-calc reveal" id="calc" aria-label="Калькулятор">
-        <div class="bs-calc__head">
-          <h2 class="bs-h2">Калькулятор и заявка</h2>
-          <p class="bs-sub">Сначала считаем — потом отправляем</p>
+    <section class="bs-faq reveal">
+      <div class="bs-card">
+        <div class="bs-card__head">
+          <h2 class="bs-h2">Частые вопросы</h2>
+          <p class="bs-sub">Кратко и по делу</p>
         </div>
 
-        <div class="bs-calc__grid">
-          <!-- FORM (ID/NAME сохранены для JS) -->
-          <form class="bs-form" id="orderForm"
-                action="https://formspree.io/f/meelrkjz"
-                method="POST">
-
-            <input type="text" name="_gotcha" style="display:none">
-            <input type="hidden" name="_subject" value="Новая заявка — Buyer Service">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-
-            <div class="bs-field">
-              <label class="bs-label" for="link">Ссылка на товар</label>
-              <input class="bs-input" id="link" name="link" placeholder="https://..." required />
-            </div>
-
-            <div class="bs-row">
-              <div class="bs-field">
-                <label class="bs-label" for="itemPrice">Цена товара</label>
-                <input class="bs-input" id="itemPrice" name="itemPrice" type="number" step="0.01" placeholder="199.50" required />
-              </div>
-
-              <div class="bs-field">
-                <label class="bs-label" for="currency">Валюта</label>
-                <select class="bs-input" id="currency" name="currency">
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                  <option value="CNY">CNY</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="bs-field">
-              <label class="bs-label" for="variant">Размер / цвет</label>
-              <input class="bs-input" id="variant" name="variant" placeholder="42 / black" />
-            </div>
-
-            <div class="bs-field">
-              <label class="bs-label" for="comment">Комментарий</label>
-              <textarea class="bs-input bs-textarea" id="comment" name="comment" placeholder="Любые уточнения..."></textarea>
-            </div>
-
-            <div class="bs-divider"></div>
-
-            <div class="bs-row">
-              <div class="bs-field">
-                <label class="bs-label" for="name">Имя</label>
-                <input class="bs-input" id="name" name="name" placeholder="Омар" required />
-              </div>
-
-              <div class="bs-field">
-                <label class="bs-label" for="phone">WhatsApp / телефон</label>
-                <input class="bs-input" id="phone" name="phone" placeholder="+996 ..." required />
-              </div>
-            </div>
-
-            <div class="bs-actions">
-              <button class="bs-btn bs-btn--primary" type="submit">Отправить заявку</button>
-              <a class="bs-btn bs-btn--ghost" href="index.html">На главную</a>
-            </div>
-
-            <p class="bs-status" id="status" aria-live="polite"></p>
-          </form>
-
-          <!-- SUMMARY -->
-          <aside class="bs-summary" aria-label="Итог расчёта">
-            <div class="bs-summary__top">
-              <h3 class="bs-summary__title">Итог</h3>
-              <div class="bs-summary__pill">Авто-расчёт</div>
-            </div>
-
-            <div class="bs-kv">
-              <div class="bs-kv__row"><span>Товар (сом)</span><b id="baseSom">0</b></div>
-              <div class="bs-kv__row"><span>Комиссия</span><b id="commissionSom">0</b></div>
-              <div class="bs-kv__row"><span>Доставка</span><b id="deliverySom">0</b></div>
-            </div>
-
-            <div class="bs-total">
-              <span>Итого к оплате</span>
-              <b id="totalSom">0</b>
-            </div>
-
-            <p class="bs-note">Финальный итог подтверждает менеджер (курс/вес/тип доставки).</p>
-          </aside>
+        <div class="bs-faq__grid">
+          <details class="bs-faq__item">
+            <summary>Почему сумма может отличаться?</summary>
+            <p>Из-за изменения курса валюты или особенностей доставки.</p>
+          </details>
+          <details class="bs-faq__item">
+            <summary>Что требуется для оформления?</summary>
+            <p>Ссылка на товар и контактный номер.</p>
+          </details>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Mini FAQ (коротко) -->
-      <section class="bs-faq reveal" aria-label="FAQ">
-        <div class="bs-card">
-          <div class="bs-card__head">
-            <h2 class="bs-h2">FAQ</h2>
-            <p class="bs-sub">Самые частые вопросы</p>
-          </div>
+    <footer class="bs-footer reveal">
+      <p>© 2026 ICE CONCEPT • Buyer Service</p>
+    </footer>
 
-          <div class="bs-faq__grid">
-            <details class="bs-faq__item">
-              <summary>Почему итог может меняться?</summary>
-              <p>Из-за курса, веса/объёма и типа доставки.</p>
-            </details>
-            <details class="bs-faq__item">
-              <summary>Что нужно для старта?</summary>
-              <p>Ссылка + цена + WhatsApp — всё.</p>
-            </details>
-          </div>
-        </div>
-      </section>
+  </div>
+</main>
 
-      <!-- Small footer -->
-      <footer class="bs-footer reveal">
-        <p>© 2026 ICE CONCEPT • Buyer Service</p>
-      </footer>
+<script>
+  (() => {
+    const items = document.querySelectorAll(".reveal");
+    if (!items.length) return;
 
-    </div>
-  </main>
-
-  <!-- Reveal (как на главной) -->
-  <script>
-    (() => {
-      const items = document.querySelectorAll(".reveal");
-      if (!items.length) return;
-
-      if (!("IntersectionObserver" in window)) {
-        items.forEach(el => el.classList.add("is-visible"));
-        return;
-      }
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-visible");
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      items.forEach(el => io.observe(el));
-    })();
-  </script>
-
-  <!-- Calculator JS (твоя логика, почти без изменений) -->
-  <script>
-    const DEFAULTS = {
-      commissionPct: 10,
-      deliverySom: 900,
-      rates: { USD: 89, EUR: 96, CNY: 12.5 }
-    };
-
-    function num(v){ const n = Number(v); return Number.isFinite(n) ? n : 0; }
-    function fmt(x){
-      const s = (Math.round(x * 100) / 100).toFixed(2);
-      const parts = s.split(".");
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-      return parts.join(".");
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(el => el.classList.add("is-visible"));
+      return;
     }
 
-    const form = document.getElementById("orderForm");
-    const statusEl = document.getElementById("status");
-    const baseSomEl = document.getElementById("baseSom");
-    const commissionSomEl = document.getElementById("commissionSom");
-    const deliverySomEl = document.getElementById("deliverySom");
-    const totalSomEl = document.getElementById("totalSom");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
-    function ensureHidden(name){
-      if (!form) return null;
-      let el = form.querySelector(`input[name="${name}"]`);
-      if (!el) { el = document.createElement("input"); el.type = "hidden"; el.name = name; form.appendChild(el); }
-      return el;
+    items.forEach(el => io.observe(el));
+  })();
+</script>
+
+<script>
+  const DEFAULTS = {
+    commissionPct: 10,
+    deliverySom: 900,
+    rates: { USD: 89, EUR: 96, CNY: 12.5 }
+  };
+
+  function num(v){ const n = Number(v); return Number.isFinite(n) ? n : 0; }
+  function fmt(x){
+    const s = (Math.round(x * 100) / 100).toFixed(2);
+    const parts = s.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return parts.join(".");
+  }
+
+  const form = document.getElementById("orderForm");
+  const statusEl = document.getElementById("status");
+  const baseSomEl = document.getElementById("baseSom");
+  const commissionSomEl = document.getElementById("commissionSom");
+  const deliverySomEl = document.getElementById("deliverySom");
+  const totalSomEl = document.getElementById("totalSom");
+
+  function ensureHidden(name){
+    if (!form) return null;
+    let el = form.querySelector(`input[name="${name}"]`);
+    if (!el) {
+      el = document.createElement("input");
+      el.type = "hidden";
+      el.name = name;
+      form.appendChild(el);
     }
+    return el;
+  }
 
-    const h_rate = ensureHidden("rate_som");
-    const h_delivery = ensureHidden("delivery_som");
-    const h_commissionPct = ensureHidden("commission_pct");
-    const h_baseSom = ensureHidden("base_som");
-    const h_commissionSom = ensureHidden("commission_som");
-    const h_totalSom = ensureHidden("total_som");
+  const h_rate = ensureHidden("rate_som");
+  const h_delivery = ensureHidden("delivery_som");
+  const h_commissionPct = ensureHidden("commission_pct");
+  const h_baseSom = ensureHidden("base_som");
+  const h_commissionSom = ensureHidden("commission_som");
+  const h_totalSom = ensureHidden("total_som");
 
-    function calc(){
-      if (!form) return;
-      const itemPrice = num(form.itemPrice?.value);
-      const currency = form.currency?.value || "USD";
+  function calc(){
+    if (!form) return;
+    const itemPrice = num(form.itemPrice?.value);
+    const currency = form.currency?.value || "USD";
 
-      const rate = DEFAULTS.rates[currency] ?? 0;
-      const delivery = DEFAULTS.deliverySom;
-      const commissionPct = DEFAULTS.commissionPct;
+    const rate = DEFAULTS.rates[currency] ?? 0;
+    const delivery = DEFAULTS.deliverySom;
+    const commissionPct = DEFAULTS.commissionPct;
 
-      const baseSom = itemPrice * rate;
-      const commissionSom = baseSom * (commissionPct / 100);
-      const totalSom = baseSom + delivery + commissionSom;
+    const baseSom = itemPrice * rate;
+    const commissionSom = baseSom * (commissionPct / 100);
+    const totalSom = baseSom + delivery + commissionSom;
 
-      if (baseSomEl) baseSomEl.textContent = fmt(baseSom) + " сом";
-      if (commissionSomEl) commissionSomEl.textContent = fmt(commissionSom) + " сом";
-      if (deliverySomEl) deliverySomEl.textContent = fmt(delivery) + " сом";
-      if (totalSomEl) totalSomEl.textContent = fmt(totalSom) + " сом";
+    if (baseSomEl) baseSomEl.textContent = fmt(baseSom) + " сом";
+    if (commissionSomEl) commissionSomEl.textContent = fmt(commissionSom) + " сом";
+    if (deliverySomEl) deliverySomEl.textContent = fmt(delivery) + " сом";
+    if (totalSomEl) totalSomEl.textContent = fmt(totalSom) + " сом";
 
-      if (h_rate) h_rate.value = rate;
-      if (h_delivery) h_delivery.value = delivery;
-      if (h_commissionPct) h_commissionPct.value = commissionPct;
-      if (h_baseSom) h_baseSom.value = fmt(baseSom);
-      if (h_commissionSom) h_commissionSom.value = fmt(commissionSom);
-      if (h_totalSom) h_totalSom.value = fmt(totalSom);
-    }
+    if (h_rate) h_rate.value = rate;
+    if (h_delivery) h_delivery.value = delivery;
+    if (h_commissionPct) h_commissionPct.value = commissionPct;
+    if (h_baseSom) h_baseSom.value = fmt(baseSom);
+    if (h_commissionSom) h_commissionSom.value = fmt(commissionSom);
+    if (h_totalSom) h_totalSom.value = fmt(totalSom);
+  }
 
-    if (form) form.addEventListener("input", calc);
+  if (form) form.addEventListener("input", calc);
 
-    // ✅ ВОТ ЭТО НОВОЕ: URL твоего Cloudflare Worker
-    const WORKER_URL = "https://blue-resonance-29cb.crycrazydiamond.workers.dev";
+  const WORKER_URL = "https://blue-resonance-29cb.crycrazydiamond.workers.dev";
 
-    if (form) {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        calc();
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      calc();
 
-        const text =
+      const text =
 `🧊 ICE CONCEPT • Buyer Service
 📌 Новая заявка
 
@@ -340,26 +320,26 @@
 Доставка: ${h_delivery?.value || "-"} сом
 ✅ Итого: ${h_totalSom?.value || "-"} сом`;
 
-        try {
-          const res = await fetch(WORKER_URL, {
-            method: "POST",
-            headers: { "Accept": "application/json", "Content-Type": "application/json" },
-            body: JSON.stringify({ text })
-          });
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text })
+        });
 
-          if (!res.ok) throw new Error("Worker error");
+        if (!res.ok) throw new Error("Worker error");
 
-          if (statusEl) statusEl.textContent = "✅ Заявка отправлена! Мы свяжемся с вами.";
-          form.reset();
-          calc();
-        } catch (err) {
-          console.error(err);
-          if (statusEl) statusEl.textContent = "❌ Не удалось отправить заявку. Попробуйте ещё раз.";
-        }
-      });
-    }
+        if (statusEl) statusEl.textContent = "✅ Заявка отправлена! Мы свяжемся с вами.";
+        form.reset();
+        calc();
+      } catch (err) {
+        console.error(err);
+        if (statusEl) statusEl.textContent = "❌ Не удалось отправить заявку. Попробуйте ещё раз.";
+      }
+    });
+  }
 
-    calc();
-  </script>
+  calc();
+</script>
 </body>
 </html>
