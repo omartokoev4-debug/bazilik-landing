@@ -274,7 +274,7 @@ body::after{
   transform: translateX(-120%);
   transition: transform .6s ease;
   pointer-events:none;
-  opacity:.55;
+  opacity: .18;
 }
 
 .link-card:hover::after{
@@ -391,7 +391,7 @@ body::after{
   animation: offerShimmer 4.6s ease-in-out infinite;
   pointer-events:none;
   z-index: 0;
-  opacity: .45;
+   opacity: .18;
 }
 
 .bonus-pulse > *{
@@ -724,7 +724,35 @@ body::after{
   object-fit: cover;
   display: block;
 }
+/* ===== FIX: убираем белые блики и hover-эффекты на телефоне ===== */
+@media (hover: none), (pointer: coarse) {
+  .link-card::after,
+  .bonus-pulse::after,
+  .limited-badge::after {
+    display: none !important;
+    animation: none !important;
+  }
 
+  .link-card:hover,
+  .bonus-pulse:hover,
+  .map__btn:hover,
+  .map-preview:hover img,
+  .link-card:hover .link-card__arrow {
+    transform: none !important;
+  }
+
+  .link-card:hover {
+    box-shadow: 0 18px 50px rgba(0,0,0,.42) !important;
+    background: rgba(35,18,10,.92) !important;
+    border-color: rgba(255,140,60,.24) !important;
+  }
+
+  .map__btn:hover {
+    box-shadow: 0 18px 45px rgba(0,0,0,.22) !important;
+    background: rgba(40,21,12,.96) !important;
+    border-color: rgba(255,140,60,.22) !important;
+  }
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px){
   .reels-single{
@@ -733,56 +761,7 @@ body::after{
   }
 }
 
-@media (max-width: 720px){
-  .link-card,
-  .link-card--featured,
-  .link-card--whatsapp,
-  .link-card--telegram,
-  .link-card--instagram,
-  .limited-badge,
-  .map-card__inner,
-  .map-preview__badge,
-  .map-preview__hint{
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
-  }
 
-  .link-card,
-  .link-card--featured,
-  .link-card--whatsapp,
-  .link-card--telegram,
-  .link-card--instagram{
-    background: rgba(35,18,10,.92) !important;
-    border: 1px solid rgba(255,140,60,.24) !important;
-  }
-
-  .link-card__text b{
-    font-size: 13px;
-    line-height: 1.2;
-  }
-
-  .link-card__text small{
-    font-size: 12px;
-    line-height: 1.35;
-  }
-
-  .map-card__inner{
-    background: rgba(30,16,10,.90) !important;
-  }
-
-  .map-preview__badge{
-    background: rgba(33,18,11,.92) !important;
-  }
-
-  .map-preview__hint{
-    background: rgba(18,18,18,.70) !important;
-  }
-
-  .map__btn{
-    background: rgba(40,21,12,.96);
-    color:#f3d3b4;
-  }
-}
 
 @media (max-width: 520px){
   .limited-badge{
