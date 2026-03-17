@@ -492,6 +492,15 @@
   .bs-brand__title{
     font-size:16px;
   }
+  .link-card__logo-round{
+  width: 59px;
+  height: 59px;
+  display: block;
+  border-radius: 50%;
+  object-fit: contain;   /* вместо cover */
+  background: #1A1A1A;      /* или #1A1A1A */
+  padding: 4px;
+}
 
   .bs-brand__sub{
     font-size:10px;
