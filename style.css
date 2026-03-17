@@ -850,3 +850,12 @@ body::after{
   transform: translateX(1px);
   opacity: .9;
 }
+.link-card__logo-round{
+  width: 58px;
+  height: 58px;
+  display: block;
+  border-radius: 50%;
+  object-fit: contain;   /* вместо cover */
+  background: #ffffff00;      /* или #1A1A1A */
+  padding: 4px;
+}
