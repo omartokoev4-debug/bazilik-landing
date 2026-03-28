@@ -29,12 +29,13 @@
     </div>
 
     <nav class="bs-nav" aria-label="Социальные сети">
-      <a class="bs-navbtn" href="" target="_blank" aria-label="Telegram">
-        <img src="images/Telegram_2019_Logo.svg.webp" alt="">
-      </a>
-      <a class="bs-navbtn" href="" target="_blank" aria-label="WhatsApp">
-        <img src="images/whatsapp-icon-logo-transparent-background-free-png.webp" alt="">
-      </a>
+
+      <a class="bs-navbtn" 
+   href="https://wa.me/996755300777" 
+   target="_blank" 
+   aria-label="WhatsApp">
+  <img src="images/whatsapp-icon-logo-transparent-background-free-png.webp" alt="">
+</a>
       <a class="bs-navbtn bs-navbtn--instagram" href="https://www.instagram.com/ice__concept/?hl=ru" target="_blank">
         <img src="images/8a770507298d728a1e3e039a0507dd8e.png" alt="">
       </a>
@@ -91,7 +92,54 @@
         </div>
       </div>
     </section>
+<section class="bs-brands reveal">
+  <div class="bs-card">
+    <div class="bs-card__head">
+      <h2 class="bs-h2">Популярные бренды</h2>
+      <p class="bs-sub">Работаем с оригинальной продукцией</p>
+    </div>
 
+    <div class="bs-brands__viewport" id="brandsViewport">
+
+      <a href="https://www.hermes.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное.svg" alt="Hermes">
+      </a>
+
+      <a href="https://www.prada.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное (1).svg" alt="Prada">
+      </a>
+
+      <a href="https://www.gucci.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное (2).svg" alt="Gucci">
+      </a>
+
+      <a href="https://www.louisvuitton.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное (3).svg" alt="Louis Vuitton">
+      </a>
+
+      <a href="https://www.paulandshark.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное (4).svg" alt="Paul & Shark">
+      </a>
+
+      <a href="https://www.dior.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное (5).svg" alt="Dior">
+      </a>
+
+      <a href="https://www.nike.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное (6).svg" alt="Nike">
+      </a>
+
+      <a href="https://www.adidas.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное (7).svg" alt="Adidas">
+      </a>
+
+      <a href="https://www.balenciaga.com" target="_blank" class="bs-brand-item">
+        <img src="images/brands/загруженное (8).svg" alt="Balenciaga">
+      </a>
+
+    </div>
+  </div>
+</section>
     <section class="bs-calc reveal" id="calc">
       <div class="bs-calc__head">
         <h2 class="bs-h2">Калькулятор стоимости</h2>
@@ -340,6 +388,41 @@
   }
 
   calc();
+</script>
+<script>
+  (() => {
+    const slider = document.getElementById("brandsViewport");
+    if (!slider) return;
+
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    slider.addEventListener("mousedown", (e) => {
+      isDown = true;
+      slider.classList.add("is-dragging");
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("mouseleave", () => {
+      isDown = false;
+      slider.classList.remove("is-dragging");
+    });
+
+    slider.addEventListener("mouseup", () => {
+      isDown = false;
+      slider.classList.remove("is-dragging");
+    });
+
+    slider.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.2;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  })();
 </script>
 </body>
 </html>
